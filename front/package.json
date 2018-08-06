@@ -1,0 +1,27 @@
+{
+  "name": "front",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "../node_modules/\\@vue/cli-service/bin/vue-cli-service.js serve --open",
+    "build": "../node_modules/\\@vue/cli-service/bin/vue-cli-service.js build",
+    "lint": "../node_modules/\\@vue/cli-service/bin/vue-cli-service.js lint",
+    "test:unit": "../node_modules/\\@vue/cli-service/bin/vue-cli-service.js test:unit",
+    "test:e2e": "../node_modules/\\@vue/cli-service/bin/vue-cli-service.js test:e2e"
+  },
+  "dependencies": {
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-e2e-nightwatch": "^3.0.0-rc.10",
+    "@vue/cli-plugin-eslint": "^3.0.0-rc.10",
+    "@vue/cli-plugin-unit-jest": "^3.0.0-rc.10",
+    "@vue/cli-service": "^3.0.0-rc.10",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "vue-template-compiler": "^2.5.16"
+  }
+}

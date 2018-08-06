@@ -1,0 +1,2 @@
+# do not copy node_modules from host to container if exists
+node_modules/

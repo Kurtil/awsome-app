@@ -1,0 +1,39 @@
+version: "3.5"
+services:
+  back:
+    container_name: back
+    # restart: always
+    build: ./back
+    # Folders are binded to make app auto reload possible with nodemon inside the container
+    volumes:
+      - ./back:/app
+    ports:
+      - "3000:3000"
+    networks:
+      - appnetwork
+  front:
+    container_name: front
+    # restart: always
+    build: ./front
+    # Folders are binded to make app auto reload possible with vue-cli inside the container
+    volumes:
+      - ./front:/app
+    ports:
+      - "8080:8080"
+    networks:
+      - appnetwork
+  mongo:
+    container_name: mongo
+    image: mongo
+    # for persistent data on every run
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - appnetwork
+# the different containers are connected to the same network
+networks:
+  appnetwork:
+    name: awesomeApp-network
+    driver: bridge
