@@ -4,6 +4,7 @@ The first goal of this app is to separate app components (front, back, db) is se
 
 To run the app, run the following command at the root of the project
 ```
+// Need docker compose 3.5 like the one installed with Docker version 18.06.0-ce
 docker-compose up
 ```
 This command read the docker-compose.yml file and create 3 containers connected to the same network. The front and the back app files are binded outside the containers so it is possible to develop with your favorite IDE. When saving, apps auto reload thanks to nodemon (back) and vue-cli (front).
