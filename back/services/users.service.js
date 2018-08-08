@@ -17,10 +17,10 @@ module.exports = {
 
     addUser(user) {
         const userInstance = new UserModel();
-        instance.firstName = user.firstName;
-        instance.lastName = user.lastName;
-        instance.inscriptionDate = user.inscriptionDate;
-        instance.save(function (err) {
+        userInstance.firstName = user.firstName;
+        userInstance.lastName = user.lastName;
+        userInstance.inscriptionDate = user.inscriptionDate;
+        userInstance.save(function (err) {
             // TODO hangle err and success to inform the front end
         });
     }
