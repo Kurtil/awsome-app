@@ -4,10 +4,20 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const mongoose = require('mongoose');
+
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var usersRouter = require('./routes/users.route');
 
 var app = express();
+
+// Mongo url is mongo because the container name of the db is mongo, on the same network
+mongoose.connect('mongodb://mongo/awsomeapp_db');
+
+// TODO : check if the followings line are interesting
+// mongoose.Promise = global.Promise;
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(logger('dev'));
 app.use(express.json());
