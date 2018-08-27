@@ -12,12 +12,12 @@ var usersRouter = require('./routes/users.route');
 var app = express();
 
 // Mongo url is mongo because the container name of the db is mongo, on the same network
-mongoose.connect('mongodb://mongo/awsomeapp_db');
+mongoose.connect('mongodb://mongo:27017/awsomeapp_db', { useNewUrlParser: true });
 
 // TODO : check if the followings line are interesting
-// mongoose.Promise = global.Promise;
-// const db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose.Promise = global.Promise;
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(logger('dev'));
 app.use(express.json());
