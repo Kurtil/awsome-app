@@ -18,7 +18,7 @@ module.exports.user_create = function (req, res, next) {
 };
 
 module.exports.user_read = function (req, res, next) {
-    UserModel.findById(req.body.id, function (err, user) {
+    UserModel.findById(req.params.id, function (err, user) {
         if (err) {
             return next(err);
         } else if (!user) {
@@ -39,14 +39,18 @@ module.exports.user_readall = function (req, res, next) {
     })
 }
 
-// TODO Update only the firstName for the moment, need to implement other properties update
 module.exports.user_update = function (req, res, next) {
-    UserModel.findByIdAndUpdate(req.body.id, {$set: {firstName: req.body.firstName}}, function (err, updatedUser) {
+    let updateObject = {};
+    if (req.body.firstName) updateObject.firstName = req.body.firstName;
+    if (req.body.lastName) updateObject.lastName = req.body.lastName;
+    if (req.body.inscriptionDate) updateObject.inscriptionDate = req.body.inscriptionDate;
+
+    UserModel.findByIdAndUpdate(req.params.id, {$set: updateObject}, function (err, updatedUser) {
         if (err) {
             return next(err);
         } else if (!updatedUser) {
             res.statusMessage = "This user does not exist!";
-            res.status(400).end();  
+            res.status(400).end();
         } else {
             res.send(`User with id ${updatedUser._id} udpated successfully!`);
         }
@@ -54,7 +58,7 @@ module.exports.user_update = function (req, res, next) {
 }
 
 module.exports.user_delete = function (req, res, next) {
-    UserModel.findByIdAndRemove(req.body.id, function (err, doc) {
+    UserModel.findByIdAndRemove(req.params.id, function (err, doc) {
         if (err) {
             return next(err);
         } else if (!doc) {

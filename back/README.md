@@ -10,14 +10,14 @@ The app run with nodemon for auto restart after changes on development.
 curl -i -d 'firstName=JohnSon' -X POST http://localhost:3000/users
 
 // TO READ
-curl -i -d 'id=aValidId' -X GET http://localhost:3000/users
+curl -i -X GET http://localhost:3000/users/ValidId
 
 // TO READ ALL
-curl -i http://localhost:3000/users/all
+curl -i http://localhost:3000/users/
 
 // TO UPDATE
-curl -i -d 'id=aValidId&firstName=Jojo' -X PUT http://localhost:3000/users
+curl -i -d 'firstName=Jojo' -X PUT http://localhost:3000/users/aValidId
 
 // TO DELETE
-curl -i -d 'id=aValidId' -X DELETE http://localhost:3000/users
+curl -i -X DELETE http://localhost:3000/users/aValidId
 ```
