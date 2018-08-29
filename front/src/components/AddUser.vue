@@ -27,9 +27,10 @@ export default {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        mode: 'no-cors',
         body: JSON.stringify(this.user)
-      }).then((response) => this.users = response.body);
+      }).then((response) => {
+        this.users = response.body;
+      });
     }
   }
 

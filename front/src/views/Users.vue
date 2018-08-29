@@ -28,8 +28,9 @@ export default {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      mode: 'no-cors'
-    }).then((response) => this.users = response.body);
+    })
+    .then(response => response.json())
+    .then(response => this.users = response);
   }
 }
 </script>
