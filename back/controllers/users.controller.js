@@ -20,7 +20,10 @@ module.exports.user_create = async (req, res, next) => {
         return next(err);
     }
 
-    res.status(200).json({ "success": `User created successfully with id : ${savedUser._id}` });
+    res.status(200).json({
+        "success": 'User created successfully!',
+        "id": savedUser._id
+ });
 
 };
 
