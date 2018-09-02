@@ -3,7 +3,7 @@
       <h1>The user list :</h1>
       <ul>
           <li v-for="user in users" :key="user.id">{{ user.firstName + " " + user.lastName }}
-            <span class="deleteCross" @click="deleteUser(user._id)">x</span>
+            <span class="deleteCross" @click="deleteUser(user._id)" title="delete user">x</span>
           </li>
       </ul>
   </div>
@@ -31,6 +31,8 @@ export default {
       .getAllUsers()
       .then(response => response.json())
       .then(response => (this.users = response));
+
+    this.$root.$on("addedUser", data => this.users.push(data));
   }
 };
 </script>
@@ -40,5 +42,6 @@ li {
 }
 .deleteCross {
   cursor: pointer;
+  font-weight: bold;
 }
 </style>

@@ -23,7 +23,13 @@ export default {
   },
   methods: {
     async addUser() {
-      await userService.addUser(this.user);
+      try {
+      const res = await userService.addUser(this.user);
+      const body = await res.json();
+      this.$root.$emit('addedUser', Object.assign({}, this.user, {"_id": body.id}));
+      } catch(err) {
+        // TODO handle err properly
+      }
     }
   }
 };
