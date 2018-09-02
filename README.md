@@ -12,8 +12,8 @@ docker-compose up --build
 This command read the docker-compose.yml file and create 3 containers connected to the same network. The front and the back app files are binded outside the containers so it is possible to develop with your favorite IDE. When saving, apps auto reload thanks to nodemon (back) and vue-cli (front).
 
 The next goals are :
-- make the 3 parts interact ( simple CRUD )
-- add 
+- make the 3 parts interact ( simple CRUD ) -> DONE
+- add authentication
 - add file down/uploading
 - add translation possibilities (Fr/En)
 ...
