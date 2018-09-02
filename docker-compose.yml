@@ -12,6 +12,8 @@ services:
       - "3001:3001"
     networks:
       - appnetwork
+    depends_on:
+      - mongo
   front:
     container_name: front
     # restart: always
