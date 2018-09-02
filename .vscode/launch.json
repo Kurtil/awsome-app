@@ -6,6 +6,7 @@
         "request": "attach",
         "name": "Attach to Docker",
         "port": 3001,
+        "restart": true,
         "localRoot": "${workspaceFolder}/back",
         "remoteRoot": "/app",
       }
