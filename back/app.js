@@ -14,8 +14,7 @@ var app = express();
 // Mongo url is mongo because the container name of the db is mongo, on the same network
 mongoose.connect('mongodb://mongo:27017/awsomeapp_db', { useNewUrlParser: true });
 
-// TODO : check if the followings line are interesting
-mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise; // To enable promise use in mongoose
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
