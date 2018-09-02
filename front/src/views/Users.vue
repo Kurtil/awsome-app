@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <UsersList :users="users"/>
+    <UsersList/>
     <AddUser/>
   </div>
 </template>
@@ -20,17 +20,6 @@ export default {
     return {
       users: []
     }
-  },
-  mounted() {
-    fetch('http://localhost:3000/users', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-    })
-    .then(response => response.json())
-    .then(response => this.users = response);
   }
 }
 </script>

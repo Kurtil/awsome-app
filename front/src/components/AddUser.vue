@@ -12,27 +12,19 @@
 </template>
 
 <script>
+import userService from "../services/users.service.js";
+
 export default {
-  name: 'AddUser',
-  data: function(){
-      return {
-          user: Object
-      }
+  name: "AddUser",
+  data() {
+    return {
+      user: Object
+    };
   },
-  methods : {
-    addUser() {
-      fetch('http://localhost:3000/users', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(this.user)
-      }).then((response) => {
-        this.users = response.body;
-      });
+  methods: {
+    async addUser() {
+      await userService.addUser(this.user);
     }
   }
-
-}
+};
 </script>
