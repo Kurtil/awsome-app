@@ -23,4 +23,4 @@ ENV DEBUG=nodemon,nodemon:*
 EXPOSE 3000
 
 # start the back
-CMD ["npm", "start"]
+CMD ["npm", "run", "debug"]
