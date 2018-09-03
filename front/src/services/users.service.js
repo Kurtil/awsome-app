@@ -17,18 +17,17 @@ export default {
             }
         })
     },
-    addUser(user) {
-        let body = {
-            firstName: user.firstName,
-            lastName: user.lastName
-        };
+    addUser({ firstName, lastName }) {
         return fetch("http://localhost:3000/users", {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(body)
+            body: JSON.stringify({
+                firstName,
+                lastName
+            })
         })
     }
 }
