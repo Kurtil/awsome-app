@@ -14,25 +14,18 @@ import userService from "../services/users.service.js";
 
 export default {
   name: "UsersList",
-  data: function() {
-    return {
-      users: Array
-    };
+  computed: {
+    users() {
+      return this.$store.state.users;
+    }
   },
   methods: {
     deleteUser(userId) {
-      userService.deleteUser(userId).then(response => {
-        this.users = this.users.filter(user => user._id !== userId);
-      });
+      this.$store.dispatch('deleteUser', userId);
     }
   },
   mounted() {
-    userService
-      .getAllUsers()
-      .then(response => response.json())
-      .then(response => (this.users = response));
-
-    this.$root.$on("addedUser", data => this.users.push(data));
+    this.$store.dispatch("fetchUsers");
   }
 };
 </script>

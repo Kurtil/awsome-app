@@ -26,7 +26,7 @@ export default {
       try {
       const res = await userService.addUser(this.user);
       const body = await res.json();
-      this.$root.$emit('addedUser', Object.assign({}, this.user, {"_id": body.id}));
+      this.$store.commit('addUsers', [Object.assign({}, this.user, {"_id": body.id})]);
       } catch(err) {
         // TODO handle err properly
       }
