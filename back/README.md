@@ -21,3 +21,12 @@ curl -i -H 'Content-Type:application/json' -d '{"firstName":"Jojo"}' -X PUT http
 // TO DELETE
 curl -i -X DELETE http://localhost:3000/users/aValidId
 ```
+
+## To debug in Chrome
+Copy the followed line in chrome navbar :
+```
+chrome-devtools://devtools/bundled/js_app.html?experiments=true&v8only=true&ws=127.0.0.1:3001/UUID
+```
+- change UUID by the uuid of the debug session. (shown in the back container logs while starting
+ex : Debugger listening on ws://0.0.0.0:3001/c160c135-f3f9-4cbc-ab6e-27d7d5 )
+- If the Chrome browser is older than 66.0.3345.0, use inspector.html instead of js_app.html in the above URL.
