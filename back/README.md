@@ -7,7 +7,7 @@ The app run with nodemon for auto restart after changes on development.
 
 ```
 // TO CREATE
-curl -i -d 'firstName=JohnSon' -X POST http://localhost:3000/users
+curl -i -H 'Content-Type:application/json' -d '{"firstName":"Nico","lastName":"Delseny"}' http://localhost:3000/users
 
 // TO READ
 curl -i -X GET http://localhost:3000/users/ValidId
@@ -16,7 +16,7 @@ curl -i -X GET http://localhost:3000/users/ValidId
 curl -i http://localhost:3000/users/
 
 // TO UPDATE
-curl -i -d 'firstName=Jojo' -X PUT http://localhost:3000/users/aValidId
+curl -i -H 'Content-Type:application/json' -d '{"firstName":"Jojo"}' -X PUT http://localhost:3000/users/5b95992e745905001f5ca72a
 
 // TO DELETE
 curl -i -X DELETE http://localhost:3000/users/aValidId
