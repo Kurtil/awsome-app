@@ -51,26 +51,3 @@ npm run test:unit
 ```
 npm run test:e2e
 ```
-
-# WARNINGS
-due to a vue cli bug, package.json commandes have been changed from
-```
-"scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-},
-``` 
-to
-```
-"scripts": {
-    "serve": "../node_modules/\\@vue/cli-service/bin/vue-cli-service.js serve --open",
-    "build": "../node_modules/\\@vue/cli-service/bin/vue-cli-service.js build",
-    "lint": "../node_modules/\\@vue/cli-service/bin/vue-cli-service.js lint"
-},
-```
-The ".." allow npm to find vue cli service. Without it, it leads to an :
-```
-sh: vue-cli-service: command not found
-```
-This may have to be changed when fixed... vuejs/vue-cli #1105
