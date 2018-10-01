@@ -6,6 +6,7 @@ services:
     build: ./back
     # Folders are binded to make app auto reload possible with nodemon inside the container
     volumes:
+      - /app/node_modules # a named volume is created to avoid overriding
       - ./back:/app
     ports:
       - "3000:3000"
@@ -20,6 +21,7 @@ services:
     build: ./front
     # Folders are binded to make app auto reload possible with vue-cli inside the container
     volumes:
+      - /app/node_modules # a named volume is created to avoid overriding
       - ./front:/app
     ports:
       - "8080:8080"
@@ -35,7 +37,7 @@ services:
       - "27017:27017"
     networks:
       - appnetwork
-# the different containers are connected to the same network
+      # the different containers are connected to the same network
 networks:
   appnetwork:
     name: awesomeApp-network

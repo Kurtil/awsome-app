@@ -11,8 +11,7 @@ RUN npm i -g nodemon
 
 COPY package*.json ./
 
-# node_modules is moved to parent directory to not be overridden by folder bindings 
-RUN npm install && mv ./node_modules /node_modules
+RUN npm install
 
 # copy the app inside the container
 COPY . .
