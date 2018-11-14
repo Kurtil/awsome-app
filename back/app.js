@@ -27,8 +27,11 @@ mongoose.connection.on('error', function (e) {
   // connectToBd();
 });
 
+const promisedApp = new Promise((resolve, reject) => {
 mongoose.connection.on('connected', function (e) {
   console.log('db: mongodb is connected: ' + dbUrl);
+    resolve(app);
+  });
 });
 
 mongoose.connection.on('disconnecting', function () {
@@ -90,4 +93,4 @@ app.use(function (err, req, res, next) {
   res.send('error');
 });
 
-module.exports = app;
+module.exports = promisedApp;
