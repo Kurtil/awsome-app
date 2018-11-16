@@ -7,7 +7,9 @@ const User = new Schema({
     id: ObjectId,
     firstName: String,
     lastName: String,
-    inscriptionDate: Date
+    inscriptionDate: Date,
+    login: String,
+    password: String
   });
 
   const UserModel = mongoose.model('User', User);

@@ -17,4 +17,10 @@ router.put('/:id', user_controller.user_update);
 /* DELETE */
 router.delete('/:id', user_controller.user_delete);
 
+/* REGISTER */
+router.post('/register', user_controller.user_register);
+
+/* LOGIN */
+router.post('/login', user_controller.user_login);
+
 module.exports = router;
