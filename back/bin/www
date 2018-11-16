@@ -3,16 +3,14 @@
 /**
  * Module dependencies.
  */
-
-var promisedApp = require('../app');
-var debug = require('debug')('back:server');
-var http = require('http');
+const promisedApp = require('../app');
+const debug = require('debug')('back:server');
+const http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
-
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 
 promisedApp.then(app => {
   app.set('port', port);
@@ -20,23 +18,20 @@ promisedApp.then(app => {
   /**
    * Create HTTP server.
    */
-
-  var server = http.createServer(app);
+  const server = http.createServer(app);
 
   /**
    * Listen on provided port, on all network interfaces.
    */
   server.listen(port, debug(`Server listening on port ${port}`));
   server.on('error', onError);
-  // server.on('listening', onListening.bind(null, server.address()));
 });
 
 /**
  * Normalize a port into a number, string, or false.
  */
-
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  const port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -54,13 +49,12 @@ function normalizePort(val) {
 /**
  * Event listener for HTTP server "error" event.
  */
-
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
 
-  var bind = typeof port === 'string'
+  const bind = typeof port === 'string'
     ? 'Pipe ' + port
     : 'Port ' + port;
 
